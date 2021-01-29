@@ -1,12 +1,3 @@
-<?php
-require_once 'vendor/autoload.php';
-include("datos/datos.php");
-/* $blog = Sql::getInstancia();
-$blog->set($blogs, $comments); */
-?>
-
-
-
 <!DOCTYPE html>
 <html>
 
@@ -38,41 +29,14 @@ $blog->set($blogs, $comments); */
             </hgroup>
         </header>
         <section class="main-col">
-            <h2>
-                <a href="./addblog.php">Añadir Formulario</a>
-            </h2>
-            <br>
-            <?php
-            foreach ($blogs as $key => $value) {
-                $id = $value->getId();
 
-                echo "<article class='blog'>";
-                echo "<div class='date'>";
-                echo "<time datetime=''>";
-                echo $value->getCreated();
-                echo " </time>";
-                echo "<header>";
-                echo "<h2><a href='show.php?id=$id'>";
-                echo $value->getTitle();
-                echo "</a></h2>";
-                echo "</header>";
-                echo " <img src='";
-                echo "img/" . $value->getImage();
-                echo "' />";
-                echo "<div class='snippet'>";
-                echo "<p>" . $value->getBlog() . " </p>";
-                echo  " <p class='continue'><a href='#'>Continue reading...</a></p>";
-                echo "</div>";
-                echo "<footer class='meta'>";
-                echo " <p>Comments: <a href='#'>";
-                echo "";
-                echo  " </a></p>";
-                echo " <p>Posted by <span class='highlight'>dsyph3r</span> at 07:06PM</p>";
-                echo "<p>Tags: <span class='highlight'>symfony2, php, paradise, symblog</span></p>";
-                echo "</footer>";
-                echo "</article>";
-            }
-            ?>
+            <form action="">
+                <label for="Title">Title</label><input type="text" name="title" id="title">
+                <label for="Description">Description</label><input type="text" name="description" id="description">
+                <label for="Tags">Tags</label><input type="text" name="tags" id="tags">
+                <label for="Author">Author</label><input type="text" name="author" id="author">
+                <input type="submit" value="Enviar consulta" name="enviar">
+            </form>
 
 
         </section>
@@ -91,21 +55,15 @@ $blog->set($blogs, $comments); */
                 <header>
                     <h3>Latest Comments</h3>
                 </header>
-                <?php
-
-                $usuario =  $comments[14]->getUser();
-                echo <<<EOT
-                         <article class='comment'>
-                        <header>
-                        <p class="small"><span class="highlight">$usuario</span> commented on
+                <article class="comment">
+                    <header>
+                        <p class="small"><span class="highlight">Carlos Aguilera</span> commented on
                             <a href="#">A day with Symfony2</a>
                         </p>
-                        </header>
-                        <p>Comentario $usuario</p>
-                        </article>
-                        </section>
-                EOT;
-                ?>
+                    </header>
+                    <p>Comentario Usuario</p>
+                </article>
+            </section>
         </aside>
         <div id="footer">
             dwes symblog - created by <a href="#">dwes</a>

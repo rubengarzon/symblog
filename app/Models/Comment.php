@@ -1,6 +1,10 @@
 <?php
+
+namespace App\Models;
+
 class Comment
 {
+    private $id_blog;
     private $user;
     private $blog;
     private $comment;
@@ -128,6 +132,26 @@ class Comment
     public function setApproved($approved)
     {
         $this->approved = $approved;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id_blog
+     */
+    public function getId_blog()
+    {
+        return $this->id_blog;
+    }
+
+    /**
+     * Set the value of id_blog
+     *
+     * @return  self
+     */
+    public function setId_blog($id_blog)
+    {
+        $this->id_blog = $id_blog;
 
         return $this;
     }

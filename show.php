@@ -34,47 +34,47 @@ $blog->set($blogs, $comments); */
             </div>
             <hgroup>
                 <h2><a href="index.php/">symblog</a></h2>
-                <h3><a href="index.php/">creating a blog in Symfony2</a></h3>
+                <h3><a href="index_sb.php/">creating a blog in Symfony2</a></h3>
             </hgroup>
         </header>
         <section class="main-col">
-            <h2>
-                <a href="./addblog.php">Añadir Formulario</a>
-            </h2>
-            <br>
+
+
+
             <?php
-            foreach ($blogs as $key => $value) {
-                $id = $value->getId();
 
-                echo "<article class='blog'>";
-                echo "<div class='date'>";
-                echo "<time datetime=''>";
-                echo $value->getCreated();
-                echo " </time>";
-                echo "<header>";
-                echo "<h2><a href='show.php?id=$id'>";
-                echo $value->getTitle();
-                echo "</a></h2>";
-                echo "</header>";
-                echo " <img src='";
-                echo "img/" . $value->getImage();
-                echo "' />";
-                echo "<div class='snippet'>";
-                echo "<p>" . $value->getBlog() . " </p>";
-                echo  " <p class='continue'><a href='#'>Continue reading...</a></p>";
-                echo "</div>";
-                echo "<footer class='meta'>";
-                echo " <p>Comments: <a href='#'>";
-                echo "";
-                echo  " </a></p>";
-                echo " <p>Posted by <span class='highlight'>dsyph3r</span> at 07:06PM</p>";
-                echo "<p>Tags: <span class='highlight'>symfony2, php, paradise, symblog</span></p>";
-                echo "</footer>";
-                echo "</article>";
+
+
+            $id = $_GET['id'];
+            //  var_dump($comments);
+            foreach ($comments as $key => $value) {
+                //var_dump($comments);
+                if ($value->getId_blog() == $id) {
+                    echo "<article class='comments'>";
+                    echo "<div class='comments'>";
+                    echo "<p><span class='highlight'>";
+                    echo $value->getUser();
+                    echo  "</span>";
+                    echo "commented";
+                    echo $value->getCreated() . "</p>";
+                    echo "<p>" . $value->getComment() . "</p>";
+                    echo "</div>";
+                    echo "</article>";
+                }
             }
+            /*  foreach ($blog->comments as $key => $value) {
+                echo "<article class='comments'>";
+                echo "<div class='comments'>";
+                echo "<p><span class='highlight'>";
+                echo $value->getUser();
+                echo  "</span>";
+                echo "commented";
+                echo $value->getCreated() . "</p>";
+                echo "<p>" . $value->getComment() . "</p>";
+                echo "</div>";
+                echo "</article>";
+            } */
             ?>
-
-
         </section>
         <aside class="sidebar">
             <section class="section">
@@ -91,21 +91,15 @@ $blog->set($blogs, $comments); */
                 <header>
                     <h3>Latest Comments</h3>
                 </header>
-                <?php
-
-                $usuario =  $comments[14]->getUser();
-                echo <<<EOT
-                         <article class='comment'>
-                        <header>
-                        <p class="small"><span class="highlight">$usuario</span> commented on
+                <article class="comment">
+                    <header>
+                        <p class="small"><span class="highlight">Carlos Aguilera</span> commented on
                             <a href="#">A day with Symfony2</a>
                         </p>
-                        </header>
-                        <p>Comentario $usuario</p>
-                        </article>
-                        </section>
-                EOT;
-                ?>
+                    </header>
+                    <p>Comentario Usuario</p>
+                </article>
+            </section>
         </aside>
         <div id="footer">
             dwes symblog - created by <a href="#">dwes</a>

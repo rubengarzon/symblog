@@ -1,14 +1,17 @@
 <?php
 
 #Importar modelo de abstracción de base de datos
-require_once('DBAbstractModel.php');
-include_once('app/Models/Blog.php');
+
+/* require_once 'vendor/autoload.php';
+
+/* require_once('DBAbstractModel.php');
+include_once('app/Models/Blog.php'); */
 //include_once('app/Models/Comment.php');
 
-class Sql extends DBAbstractModel
-{
+//class Sql extends
+//{
     /*CONSTRUCCIÓN DEL MODELO SINGLETON*/
-    private static $instancia;
+    /* private static $instancia;
     public static function getInstancia()
     {
         if (!isset(self::$instancia)) {
@@ -16,7 +19,7 @@ class Sql extends DBAbstractModel
             self::$instancia = new $miClase;
         }
         return self::$instancia;
-    }
+    } */
 
     /* private $id;
     private $nombre;
@@ -39,7 +42,7 @@ class Sql extends DBAbstractModel
         return $this->mensaje;
     } */
 
-    public function set($user_data = array(), $user_data2 = array())
+/*     public function set($user_data = array(), $user_data2 = array())
     {
         foreach ($user_data as $campo => $valor) {
             $$campo = $valor;
@@ -70,4 +73,4 @@ class Sql extends DBAbstractModel
             $this->mensaje = 'SH agregado correctamente';
         }
     }
-}
+} */

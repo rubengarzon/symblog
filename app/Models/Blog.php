@@ -1,6 +1,10 @@
 <?php
+
+namespace App\Models;
+
 class Blog
 {
+    private $id;
     private $title;
     private $blog;
     private $image;
@@ -8,6 +12,7 @@ class Blog
     private $tags;
     private $created;
     private $updated;
+    private $comentarios = array();
 
 
     /*  function __construct()
@@ -143,11 +148,9 @@ class Blog
         return $this;
     }
 
-    function addComment($comment1)
+    function addComment($nuevoComentario)
     {
-        /* $this->contador++;
-        array_push($blogs,  $this->contador++); */
-        return $comment1;
+        array_push($this->comentarios, $nuevoComentario);
     }
 
     /**
@@ -166,5 +169,25 @@ class Blog
     public function setCreated($created)
     {
         $this->created = $created;
+    }
+
+    /**
+     * Get the value of id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 }
