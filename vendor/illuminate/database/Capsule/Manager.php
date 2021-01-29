@@ -1,5 +1,5 @@
 <?php
-
+//prueba
 namespace Illuminate\Database\Capsule;
 
 use Illuminate\Container\Container;
