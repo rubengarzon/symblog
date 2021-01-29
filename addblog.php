@@ -1,4 +1,6 @@
 <?php
+require_once 'vendor/autoload.php';
+use App\Models\Blog;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 $capsule = new Capsule;
@@ -14,10 +16,19 @@ $capsule->addConnection([
     'prefix'    => '',
 ]);
 
+
 $capsule->setAsGlobal();
 
-// Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
 $capsule->bootEloquent();
+
+if(!empty($_POST)){
+    $blog = new Blog();
+    $blog->title = $_POST['title'];
+    $blog->blog = $_POST['description'];
+    $blog->tag = $_POST['tag'];
+    $blog->author = $_POST['author'];
+    $blog->save();
+}
 
 ?>
 <!DOCTYPE html>
@@ -52,10 +63,10 @@ $capsule->bootEloquent();
         </header>
         <section class="main-col">
 
-            <form action="">
+            <form action="" method="POST">
                 <label for="Title">Title</label><input type="text" name="title" id="title">
                 <label for="Description">Description</label><input type="text" name="description" id="description">
-                <label for="Tags">Tags</label><input type="text" name="tags" id="tags">
+                <label for="Tags">Tags</label><input type="text" name="tag" id="tag">
                 <label for="Author">Author</label><input type="text" name="author" id="author">
                 <input type="submit" value="Enviar consulta" name="enviar">
             </form>

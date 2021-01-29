@@ -1,11 +1,29 @@
 <?php
 require_once 'vendor/autoload.php';
-include("datos/datos.php");
-/* $blog = Sql::getInstancia();
-$blog->set($blogs, $comments); */
+
+use App\Models\Blog;
+use Illuminate\Database\Capsule\Manager as Capsule;
+
+$capsule = new Capsule;
+
+$capsule->addConnection([
+    'driver'    => 'mysql',
+    'host'      => 'localhost',
+    'database'  => 'symblog',
+    'username'  => 'symblog',
+    'password'  => 'symblog',
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix'    => '',
+]);
+
+$capsule->setAsGlobal();
+
+$capsule->bootEloquent();
+
+
+
 ?>
-
-
 
 <!DOCTYPE html>
 <html>
@@ -43,24 +61,22 @@ $blog->set($blogs, $comments); */
             </h2>
             <br>
             <?php
-            foreach ($blogs as $key => $value) {
-                $id = $value->getId();
-
+                foreach (Blog::all() as $blog) {
                 echo "<article class='blog'>";
                 echo "<div class='date'>";
                 echo "<time datetime=''>";
-                echo $value->getCreated();
+                echo $blog->created;
                 echo " </time>";
                 echo "<header>";
-                echo "<h2><a href='show.php?id=$id'>";
-                echo $value->getTitle();
+                echo "<h2><a href='show_sb.php?id=n'>";
+                echo $blog->title;
                 echo "</a></h2>";
                 echo "</header>";
                 echo " <img src='";
-                echo "img/" . $value->getImage();
+                echo "img/" . $blog->image;
                 echo "' />";
                 echo "<div class='snippet'>";
-                echo "<p>" . $value->getBlog() . " </p>";
+                echo "<p>" . $blog->blog . " </p>";
                 echo  " <p class='continue'><a href='#'>Continue reading...</a></p>";
                 echo "</div>";
                 echo "<footer class='meta'>";
@@ -71,10 +87,8 @@ $blog->set($blogs, $comments); */
                 echo "<p>Tags: <span class='highlight'>symfony2, php, paradise, symblog</span></p>";
                 echo "</footer>";
                 echo "</article>";
-            }
+                }
             ?>
-
-
         </section>
         <aside class="sidebar">
             <section class="section">
@@ -93,7 +107,7 @@ $blog->set($blogs, $comments); */
                 </header>
                 <?php
 
-                $usuario =  $comments[14]->getUser();
+                /* $usuario =  $comments[14]->getUser();
                 echo <<<EOT
                          <article class='comment'>
                         <header>
@@ -104,7 +118,7 @@ $blog->set($blogs, $comments); */
                         <p>Comentario $usuario</p>
                         </article>
                         </section>
-                EOT;
+                EOT; */
                 ?>
         </aside>
         <div id="footer">
