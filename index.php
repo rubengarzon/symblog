@@ -1,41 +1,17 @@
 <?php
-require_once 'vendor/autoload.php';
-
 use App\Models\Blog;
-use Illuminate\Database\Capsule\Manager as Capsule;
-
-$capsule = new Capsule;
-
-$capsule->addConnection([
-    'driver'    => 'mysql',
-    'host'      => 'localhost',
-    'database'  => 'symblog',
-    'username'  => 'symblog',
-    'password'  => 'symblog',
-    'charset'   => 'utf8',
-    'collation' => 'utf8_unicode_ci',
-    'prefix'    => '',
-]);
-
-$capsule->setAsGlobal();
-
-$capsule->bootEloquent();
-
-
-
 ?>
 
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta http-equiv="Content-Type" content="text/html" ; charset=utf-8" />
     <link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'>
-    <link href="css/screen.css" type="text/css" rel="stylesheet" />
-    <link href="css/sidebar.css" type="text/css" rel="stylesheet" />
-    <link href="css/blog.css" type="text/css" rel="stylesheet" />
-    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link href="./css/screen.css" type="text/css" rel="stylesheet" />
+    <link href="./css/sidebar.css" type="text/css" rel="stylesheet" />
+    <link href="./css/blog.css" type="text/css" rel="stylesheet" />
+    <link rel="shortcut icon" href="./img/favicon.ico" />
 </head>
 
 <body>
@@ -44,50 +20,50 @@ $capsule->bootEloquent();
             <div class="top">
                 <nav>
                     <ul class="navigation">
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="about.php">About</a></li>
-                        <li><a href="contact.php">Contact</a></li>
+                        <li><a href="index.php?route=/">Home</a></li>
+                        <li><a href="index.php?route=about">About</a></li>
+                        <li><a href="index.php?route=contact">Contact</a></li>
                     </ul>
                 </nav>
             </div>
             <hgroup>
-                <h2><a href="index.php/">symblog</a></h2>
-                <h3><a href="index.php/">creating a blog in Symfony2</a></h3>
+            <h2><a href="index.php?route=/">symblog</a></h2>
+                <h3><a href="index.php?route=/">creating a blog in Symfony2</a></h3>
             </hgroup>
         </header>
         <section class="main-col">
             <h2>
-                <a href="./addblog.php">Añadir Formulario</a>
+                <a href="index.php?route=addblog">Añadir Formulario</a>
             </h2>
             <br>
             <?php
                 foreach (Blog::all() as $blog) {
-                echo "<article class='blog'>";
-                echo "<div class='date'>";
-                echo "<time datetime=''>";
-                echo $blog->created;
-                echo " </time>";
-                echo "<header>";
-                echo "<h2><a href='show_sb.php?id=n'>";
-                echo $blog->title;
-                echo "</a></h2>";
-                echo "</header>";
-                echo " <img src='";
-                echo "img/" . $blog->image;
-                echo "' />";
-                echo "<div class='snippet'>";
-                echo "<p>" . $blog->blog . " </p>";
-                echo  " <p class='continue'><a href='#'>Continue reading...</a></p>";
-                echo "</div>";
-                echo "<footer class='meta'>";
-                echo " <p>Comments: <a href='#'>";
-                echo "";
-                echo  " </a></p>";
-                echo " <p>Posted by <span class='highlight'>dsyph3r</span> at 07:06PM</p>";
-                echo "<p>Tags: <span class='highlight'>symfony2, php, paradise, symblog</span></p>";
-                echo "</footer>";
-                echo "</article>";
-                }
+                    echo "<article class='blog'>";
+                    echo "<div class='date'>";
+                    echo "<time datetime=''>";
+                    echo $blog->created;
+                    echo " </time>";
+                    echo "<header>";
+                    echo "<h2><a href='index.php?route=show&id=$blog->id'>";
+                    echo $blog->title;
+                    echo "</a></h2>";
+                    echo "</header>";
+                    echo " <img src='";
+                    echo "img/" . $blog->image;
+                    echo "' />";
+                    echo "<div class='snippet'>";
+                    echo "<p>" . $blog->blog . " </p>";
+                    echo  " <p class='continue'><a href='#'>Continue reading...</a></p>";
+                    echo "</div>";
+                    echo "<footer class='meta'>";
+                    echo " <p>Comments: <a href='#'>";
+                    echo "";
+                    echo  " </a></p>";
+                    echo " <p>Posted by <span class='highlight'>dsyph3r</span> at 07:06PM</p>";
+                    echo "<p>Tags: <span class='highlight'>symfony2, php, paradise, symblog</span></p>";
+                    echo "</footer>";
+                    echo "</article>";
+                    }
             ?>
         </section>
         <aside class="sidebar">

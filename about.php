@@ -17,15 +17,15 @@
             <div class="top">
                 <nav>
                     <ul class="navigation">
-                        <li><a href="index_sb.php">Home</a></li>
-                        <li><a href="about_sb.php">About</a></li>
-                        <li><a href="contact_sb.php">Contact</a></li>
+                    <li><a href="index.php?route=/">Home</a></li>
+                        <li><a href="index.php?route=about">About</a></li>
+                        <li><a href="index.php?route=contact">Contact</a></li>
                     </ul>
                 </nav>
             </div>
             <hgroup>
-                <h2><a href="index_sb.php/">symblog</a></h2>
-                <h3><a href="index_sb.php/">creating a blog in Symfony2</a></h3>
+            <h2><a href="index.php?route=/">symblog</a></h2>
+                <h3><a href="index.php?route=/">creating a blog in Symfony2</a></h3>
             </hgroup>
         </header>
         <section class="main-col">

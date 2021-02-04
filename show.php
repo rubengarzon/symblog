@@ -1,8 +1,36 @@
 <?php
 require_once 'vendor/autoload.php';
-include("datos/datos.php");
-/* $blog = Sql::getInstancia();
-$blog->set($blogs, $comments); */
+
+use App\Models\Comment;
+use App\Models\Blog;
+
+use Illuminate\Database\Capsule\Manager as Capsule;
+
+$capsule = new Capsule;
+
+$capsule->addConnection([
+    'driver'    => 'mysql',
+    'host'      => 'localhost',
+    'database'  => 'symblog',
+    'username'  => 'symblog',
+    'password'  => 'symblog',
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix'    => '',
+]);
+
+$capsule->setAsGlobal();
+
+$capsule->bootEloquent();
+
+$id = $_GET['id'];
+
+$comments = Blog::find($id)->comments()->get();
+
+foreach ($comments as $key => $value) {
+    echo $value->user;
+}
+
 ?>
 
 
@@ -45,7 +73,7 @@ $blog->set($blogs, $comments); */
 
 
 
-            $id = $_GET['id'];
+           /*  $id = $_GET['id'];
             //  var_dump($comments);
             foreach ($comments as $key => $value) {
                 //var_dump($comments);
@@ -61,7 +89,7 @@ $blog->set($blogs, $comments); */
                     echo "</div>";
                     echo "</article>";
                 }
-            }
+            } */
             /*  foreach ($blog->comments as $key => $value) {
                 echo "<article class='comments'>";
                 echo "<div class='comments'>";

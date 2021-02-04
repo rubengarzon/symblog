@@ -38,9 +38,9 @@ if(!empty($_POST)){
     <meta http-equiv="Content-Type" content="text/html" ; charset=utf-8" />
     <link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'>
-    <link href="css/screen.css" type="text/css" rel="stylesheet" />
-    <link href="css/sidebar.css" type="text/css" rel="stylesheet" />
-    <link href="css/blog.css" type="text/css" rel="stylesheet" />
+    <link href="../css/screen.css" type="text/css" rel="stylesheet" />
+    <link href="../css/sidebar.css" type="text/css" rel="stylesheet" />
+    <link href="../css/blog.css" type="text/css" rel="stylesheet" />
     <link rel="shortcut icon" href="img/favicon.ico" />
 </head>
 
