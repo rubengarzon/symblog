@@ -1,36 +1,3 @@
-<?php
-require_once 'vendor/autoload.php';
-use App\Models\Blog;
-use Illuminate\Database\Capsule\Manager as Capsule;
-
-$capsule = new Capsule;
-
-$capsule->addConnection([
-    'driver'    => 'mysql',
-    'host'      => 'localhost',
-    'database'  => 'symblog',
-    'username'  => 'symblog',
-    'password'  => 'symblog',
-    'charset'   => 'utf8',
-    'collation' => 'utf8_unicode_ci',
-    'prefix'    => '',
-]);
-
-
-$capsule->setAsGlobal();
-
-$capsule->bootEloquent();
-
-if(!empty($_POST)){
-    $blog = new Blog();
-    $blog->title = $_POST['title'];
-    $blog->blog = $_POST['description'];
-    $blog->tag = $_POST['tag'];
-    $blog->author = $_POST['author'];
-    $blog->save();
-}
-
-?>
 <!DOCTYPE html>
 <html>
 

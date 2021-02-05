@@ -1,7 +1,3 @@
-<?php
-use App\Models\Blog;
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +33,7 @@ use App\Models\Blog;
             </h2>
             <br>
             <?php
-                foreach (Blog::all() as $blog) {
+                foreach ($blogs as $blog) {
                     echo "<article class='blog'>";
                     echo "<div class='date'>";
                     echo "<time datetime=''>";
