@@ -1,18 +1,28 @@
 <?php
     namespace App\Controllers;
     use App\Models\Blog;
+    use Laminas\Diactoros\Response\HtmlResponse as HtmlResponse;
 
-    class BlogsController {
+    class BlogsController extends BaseController{
         public function getAddBlogAction($request){
             if($request->getMethod()=='POST'){
                 $postData = $request->getParsedBody();
                 $blog = new Blog();
                 $blog->title = $postData['title'];
-                $blog->description = $postData['description'];
-                $blog->tag = $postData['tag'];
+                $blog->blog = $postData['description'];
+                $blog->tags = $postData['tag'];
                 $blog->author = $postData['author'];
+                //carga de archivos
+                $files = $request->getUploadedFiles();
+                $image = $files['image'];
+                if($image->getError() == UPLOAD_ERR_OK){
+                    $filename = $image->getClientFilename();
+                    $filename = uniqid().$filename;
+                    $image->moveTo("./img/$filename");
+                    $blog->image = $filename;
+                }
                 $blog->save();
             }
-            include '../views/addblog.php';
+            return $this->renderHTML('addblog.twig', array("mensaje" => "hola mundo"));
         }
     }

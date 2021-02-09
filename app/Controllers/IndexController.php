@@ -1,10 +1,12 @@
 <?php
     namespace App\Controllers;
     use App\Models\Blog;
-    class IndexController {
-        public function indexAction() {
-            echo 'indexAction';
+    use Laminas\Diactoros\Response\HtmlResponse as HtmlResponse;
+    class IndexController extends BaseController{
+        public function indexAction($request) {
             $blogs = Blog::all();
-            include '../views/index.php';
+            return $this->renderHTML('index.twig', [
+                'blogs' => $blogs
+            ]);
         }
     }

@@ -59,11 +59,12 @@ $route = $matcher->match($request);
 if(!$route){
     echo 'No route';
 }else{
-    //require $route->handler;
     $handlerData = $route->handler;
     $controllerName = $handlerData['controller'];
     $actionName = $handlerData['action'];
 
     $controller = new $controllerName;
-    $controller->$actionName($request);
+    $response = $controller->$actionName($request);
+
+    echo $response->getBody();
 }
