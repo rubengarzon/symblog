@@ -1,0 +1,22 @@
+{% extends 'layout.twig' %}
+{% block body %}
+    <article class="blog">
+    {# <div style="color: green">
+        {{responseMessage}}
+    </div> #}
+    <h3>Add User</h3>
+    <form name="formAddUser" method="post" action="../users/add" enctype="multipart/form-data">
+        <div id="enquiry">
+            <div>
+                <label for="enquiry_email" >Email</label>
+                <input type="text" id="enquiry_email" name="email" required/>
+            </div>
+            <div>
+                <label for="enquiry_password" >Password</label>
+                <input type="password" id="enquiry_password" name="password" required="required"/>
+            </div>
+                <input type="submit" id="enquiry_save" name="enquiry[save]">
+        </div>
+    </form>
+    </article>
+{% endblock %}

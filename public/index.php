@@ -46,6 +46,14 @@ $map->post('saveblog', '/symblog/blogs/add', [
     'controller' => 'App\Controllers\BlogsController',
     'action' => 'getAddBlogAction'
 ]);
+$map->get('adduser', '/symblog/users/add', [
+    'controller' => 'App\Controllers\UsersController',
+    'action' => 'getAddUserAction'
+]);
+$map->post('saveuser', '/symblog/users/add', [
+    'controller' => 'App\Controllers\UsersController',
+    'action' => 'getAddUserAction'
+]);
 $map->get('contact', '/symblog/contact', '../contact.php');
 $map->get('about', '/symblog/about', '../about.php');
 $map->get('show', '/symblog/blogs/show', '../show.php');
