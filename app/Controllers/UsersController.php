@@ -17,7 +17,7 @@
                     $userValidator->assert($postData);
                     $user = new User();
                     $user->email = $postData['email'];
-                    $user->password = password_hash($postData['password'], PASSWORD_DEFAULT);
+                    $user->password = password_hash($postData['password'], PASSWORD_BCRYPT);
                     $user->save();
                     $responseMessage = "saved";
             }

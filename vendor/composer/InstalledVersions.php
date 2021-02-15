@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '985390f7260fc3510ba7058f62c3005e3cd4d406',
+    'reference' => 'a7d4f9b37eca8710e61642ba8c2cd987a270a7a6',
     'name' => '__root__',
   ),
   'versions' => 
@@ -31,7 +31,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '985390f7260fc3510ba7058f62c3005e3cd4d406',
+      'reference' => 'a7d4f9b37eca8710e61642ba8c2cd987a270a7a6',
     ),
     'aura/router' => 
     array (
@@ -50,6 +50,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '9cf661f4eb38f7c881cac67c75ea9b00bf97b210',
+    ),
+    'graham-campbell/result-type' => 
+    array (
+      'pretty_version' => 'v1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7e279d2cd5d7fbb156ce46daada972355cea27bb',
     ),
     'illuminate/collections' => 
     array (
@@ -131,6 +140,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'e6ef33cb1f67a4bed831ed6d0f7e156739a5d8cd',
+    ),
+    'phpoption/phpoption' => 
+    array (
+      'pretty_version' => '1.7.5',
+      'version' => '1.7.5.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '994ecccd8f3283ecf5ac33254543eb0ac946d525',
     ),
     'psr/container' => 
     array (
@@ -241,6 +259,24 @@ private static $installed = array (
       ),
       'reference' => 'd62ec79478b55036f65e2602e282822b8eaaff0a',
     ),
+    'symfony/deprecation-contracts' => 
+    array (
+      'pretty_version' => 'v2.2.0',
+      'version' => '2.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5fa56b4074d1ae755beb55617ddafe6f5d78f665',
+    ),
+    'symfony/dotenv' => 
+    array (
+      'pretty_version' => 'v5.2.3',
+      'version' => '5.2.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '783f12027c6b40ab0e93d6136d9f642d1d67cd6b',
+    ),
     'symfony/polyfill-ctype' => 
     array (
       'pretty_version' => 'v1.22.0',
@@ -346,6 +382,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'f795ca686d38530045859b0350b5352f7d63447d',
+    ),
+    'vlucas/phpdotenv' => 
+    array (
+      'pretty_version' => 'v5.3.0',
+      'version' => '5.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'b3eac5c7ac896e52deab4a99068e3f4ab12d9e56',
     ),
     'voku/portable-ascii' => 
     array (
